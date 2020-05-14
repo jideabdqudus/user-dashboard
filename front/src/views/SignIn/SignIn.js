@@ -11,7 +11,7 @@ import {
   Link,
   Typography
 } from '@material-ui/core';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import Logo from "./logo--white.svg"
 
 import { Facebook as FacebookIcon, Google as GoogleIcon } from 'icons';
 
@@ -215,13 +215,12 @@ const SignIn = props => {
                   className={classes.title}
                   variant="h2"
                 >
-                  Sign in
+                  Log in
                 </Typography>
                 <Typography
                   color="textSecondary"
                   gutterBottom
                 >
-                  Sign in with social media
                 </Typography>
                 <Grid
                   className={classes.socialButtons}
@@ -245,7 +244,7 @@ const SignIn = props => {
                       size="large"
                       variant="contained"
                     >
-                      <GoogleIcon className={classes.socialIcon} />
+                      <Logo className={classes.socialIcon} />
                       Login with Google
                     </Button>
                   </Grid>
