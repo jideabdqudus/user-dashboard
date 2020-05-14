@@ -11,7 +11,6 @@ import {
   Link,
   Typography
 } from '@material-ui/core';
-import Logo from "./logo--white.svg"
 
 import { Facebook as FacebookIcon, Google as GoogleIcon } from 'icons';
 
@@ -174,31 +173,6 @@ const SignIn = props => {
         container
       >
         <Grid
-          className={classes.quoteContainer}
-          item
-          lg={5}
-        >
-          <div className={classes.quote}>
-            <div className={classes.quoteInner}>
-              
-              <div className={classes.person}>
-                <Typography
-                  className={classes.name}
-                  variant="body1"
-                >
-                  Takamaru Ayako
-                </Typography>
-                <Typography
-                  className={classes.bio}
-                  variant="body2"
-                >
-                  Manager at inVision
-                </Typography>
-              </div>
-            </div>
-          </div>
-        </Grid>
-        <Grid
           className={classes.content}
           item
           lg={7}
@@ -222,7 +196,7 @@ const SignIn = props => {
                   gutterBottom
                 >
                 </Typography>
-                <Grid
+{/*                <Grid
                   className={classes.socialButtons}
                   container
                   spacing={2}
@@ -248,15 +222,8 @@ const SignIn = props => {
                       Login with Google
                     </Button>
                   </Grid>
-                </Grid>
-                <Typography
-                  align="center"
-                  className={classes.sugestion}
-                  color="textSecondary"
-                  variant="body1"
-                >
-                  or login with email address
-                </Typography>
+</Grid>*/}
+
                 <TextField
                   className={classes.textField}
                   error={hasError('email')}
@@ -296,19 +263,7 @@ const SignIn = props => {
                 >
                   Sign in now
                 </Button>
-                <Typography
-                  color="textSecondary"
-                  variant="body1"
-                >
-                  Don't have an account?{' '}
-                  <Link
-                    component={RouterLink}
-                    to="/sign-up"
-                    variant="h6"
-                  >
-                    Sign up
-                  </Link>
-                </Typography>
+                <h3>Admin TOggle Button</h3>
               </form>
             </div>
           </div>
