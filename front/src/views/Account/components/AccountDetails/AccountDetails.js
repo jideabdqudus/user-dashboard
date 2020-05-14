@@ -88,7 +88,7 @@ const AccountDetails = props => {
       >
         <CardHeader
           subheader="The information can be edited"
-          title="Profile"
+          title="Create a story"
         />
         <Divider />
         <CardContent>
@@ -138,7 +138,7 @@ const AccountDetails = props => {
             >
             <TextField
             fullWidth
-            label="Select State"
+            label="Type"
             margin="dense"
             name="state"
             onChange={handleChange}
@@ -166,7 +166,7 @@ const AccountDetails = props => {
             >
             <TextField
             fullWidth
-            label="Select State"
+            label="Complexity"
             margin="dense"
             name="state"
             onChange={handleChange}
@@ -228,7 +228,7 @@ const AccountDetails = props => {
             color="primary"
             variant="contained"
           >
-            Save details
+            Create Story
           </Button>
         </CardActions>
       </form>
