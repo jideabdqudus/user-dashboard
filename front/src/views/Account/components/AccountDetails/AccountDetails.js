@@ -130,6 +130,7 @@ const AccountDetails = (props) => {
   ];
 
   return (
+    <AuthConsumer>
     <Card {...rest} className={clsx(classes.root, className)}>
       <form autoComplete="off" noValidate onSubmit={(e) => createNewStory(e)}>
         <CardHeader
@@ -240,8 +241,26 @@ const AccountDetails = (props) => {
             Create Story
           </Button>
         </CardActions>
+        <div className={classes.root}>
+        
+        <div>
+        <div>
+        {error& !success? (
+          <Alert severity="error" children={`${
+            typeof error === "string"
+              ? error
+              : "There was an error creating your story, please, try again later."
+          }`}/>): success?(
+            <Alert severity="success"  children={"Story successfully created"}/>
+            ):( 
+
+            "")}
+        </div>
+    </div>
+      </div>
       </form>
     </Card>
+    </AuthConsumer>
   );
 };
 
