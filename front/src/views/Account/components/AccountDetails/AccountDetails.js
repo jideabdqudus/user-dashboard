@@ -14,6 +14,9 @@ import {
   Button,
   TextField
 } from '@material-ui/core';
+import { AuthConsumer, useSignUpForm } from "../../../../components/core";
+import requestClient from "../../../../library/client";
+import { handleApiErrors, isAdmin } from "../../../../library/utils";
 
 const useStyles = makeStyles(() => ({
   root: {}
@@ -41,7 +44,56 @@ function valuetext(value) {
   return `${value}hrs`;
 }
 
-const AccountDetails = props => {
+const AccountDetails = ({ history }) => {
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const { inputs, handleInputChange } = useSignUpForm();
+
+  const createNewStory = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const {
+      storySummary,
+      storyDescription,
+      storyType,
+      storyComplexity,
+      estimatedTime,
+      associatedCost,
+    } = inputs;
+
+    const payload = {
+      summary: storySummary,
+      description: storyDescription,
+      type: storyType,
+      complexity: storyComplexity,
+      cost: associatedCost,
+      estimatedHrs: estimatedTime,
+    };
+
+    setLoading(true);
+
+    const response = await requestClient()
+      .post(`/v1/stories`, payload)
+      .catch((err) => {
+        return err;
+      });
+
+    setLoading(false);
+
+    const apiErrors = handleApiErrors(response);
+
+    if (apiErrors) {
+      setError(apiErrors);
+      return;
+    }
+
+    setSuccess(true);
+    setTimeout(() => history.push("/stories"), 2000);
+  };
+  
+  
   const { className, ...rest } = props;
 
   const classes = useStyles();
